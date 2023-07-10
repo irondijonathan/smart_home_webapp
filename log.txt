@@ -1,0 +1,89 @@
+Date: 2023-07-06, Time: 21:12:14, Device: sound system, Action: on
+Date: 2023-07-06, Time: 21:12:49, Device: A/C, Action: on
+Date: 2023-07-06, Time: 21:12:52, Device: Heater, Action: on
+Date: 2023-07-06, Time: 21:12:52, Device: light, Action: on
+Date: 2023-07-06, Time: 21:13:05, Device: light, Action: off
+Date: 2023-07-06, Time: 21:13:06, Device: Heater, Action: off
+Date: 2023-07-06, Time: 21:13:08, Device: light, Action: on
+Date: 2023-07-06, Time: 21:13:08, Device: Heater, Action: on
+Date: 2023-07-06, Time: 21:13:09, Device: light, Action: off
+Date: 2023-07-06, Time: 21:13:10, Device: sound system, Action: off
+Date: 2023-07-06, Time: 21:13:11, Device: Heater, Action: off
+Date: 2023-07-06, Time: 21:13:12, Device: A/C, Action: off
+Date: 2023-07-06, Time: 21:13:13, Device: light, Action: on
+Date: 2023-07-06, Time: 21:13:14, Device: Heater, Action: on
+Date: 2023-07-06, Time: 21:13:54, Device: sound system, Action: on
+Date: 2023-07-06, Time: 21:13:55, Device: sound system, Action: off
+Date: 2023-07-06, Time: 21:13:55, Device: light, Action: off
+Date: 2023-07-06, Time: 21:13:56, Device: light, Action: on
+Date: 2023-07-06, Time: 21:13:57, Device: A/C, Action: on
+Date: 2023-07-06, Time: 21:13:57, Device: A/C, Action: off
+Date: 2023-07-06, Time: 21:13:58, Device: light, Action: off
+Date: 2023-07-06, Time: 21:13:59, Device: Heater, Action: off
+Date: 2023-07-06, Time: 21:19:39, Device: light, Action: on
+Date: 2023-07-06, Time: 21:19:41, Device: Heater, Action: on
+Date: 2023-07-06, Time: 21:24:08, Device: sound system, Action: on
+Date: 2023-07-06, Time: 21:24:14, Device: A/C, Action: on
+Date: 2023-07-06, Time: 21:25:32, Device: A/C, Action: off
+Date: 2023-07-06, Time: 21:25:35, Device: light, Action: on
+Date: 2023-07-06, Time: 21:25:46, Device: light, Action: off
+Date: 2023-07-06, Time: 21:25:48, Device: Heater, Action: on
+Date: 2023-07-06, Time: 21:25:51, Device: sound system, Action: off
+Date: 2023-07-06, Time: 21:25:56, Device: Heater, Action: off
+Date: 2023-07-06, Time: 21:25:59, Device: A/C, Action: on
+Date: 2023-07-06, Time: 21:26:00, Device: A/C, Action: off
+Date: 2023-07-06, Time: 21:28:06, Device: A/C, Action: on
+Date: 2023-07-06, Time: 21:28:10, Device: sound system, Action: on
+Date: 2023-07-06, Time: 21:28:12, Device: light, Action: on
+Date: 2023-07-06, Time: 21:28:13, Device: Heater, Action: on
+Date: 2023-07-06, Time: 21:28:14, Device: Heater, Action: off
+Date: 2023-07-06, Time: 21:28:14, Device: A/C, Action: off
+Date: 2023-07-06, Time: 21:28:14, Device: light, Action: off
+Date: 2023-07-06, Time: 21:28:15, Device: sound system, Action: off
+Date: 2023-07-06, Time: 21:28:17, Device: media-player, Action: on
+Date: 2023-07-06, Time: 21:31:59, Device: A/C, Action: on
+Date: 2023-07-06, Time: 21:32:12, Device: Heater, Action: on
+Date: 2023-07-06, Time: 21:32:13, Device: A/C, Action: off
+Date: 2023-07-06, Time: 21:32:14, Device: Heater, Action: off
+Date: 2023-07-06, Time: 21:32:15, Device: light, Action: on
+Date: 2023-07-06, Time: 21:32:15, Device: light, Action: off
+Date: 2023-07-06, Time: 21:32:16, Device: sound system, Action: on
+Date: 2023-07-06, Time: 21:32:16, Device: sound system, Action: off
+Date: 2023-07-06, Time: 21:32:17, Device: light, Action: on
+Date: 2023-07-06, Time: 21:32:18, Device: light, Action: off
+Date: 2023-07-06, Time: 21:33:16, Device: light, Action: on
+Date: 2023-07-06, Time: 21:33:18, Device: light, Action: off
+Date: 2023-07-06, Time: 21:33:19, Device: sound system, Action: on
+Date: 2023-07-06, Time: 21:33:20, Device: sound system, Action: off
+Date: 2023-07-06, Time: 21:33:20, Device: Heater, Action: on
+Date: 2023-07-06, Time: 21:33:21, Device: Heater, Action: off
+Date: 2023-07-06, Time: 21:33:22, Device: A/C, Action: on
+Date: 2023-07-06, Time: 21:33:23, Device: A/C, Action: off
+Date: 2023-07-06, Time: 21:33:24, Device: light, Action: on
+Date: 2023-07-06, Time: 21:33:25, Device: light, Action: off
+Date: 2023-07-06, Time: 21:33:25, Device: sound system, Action: on
+Date: 2023-07-06, Time: 21:33:26, Device: sound system, Action: off
+Date: 2023-07-06, Time: 21:33:27, Device: Heater, Action: on
+Date: 2023-07-06, Time: 21:33:27, Device: Heater, Action: off
+Date: 2023-07-06, Time: 21:33:27, Device: A/C, Action: on
+Date: 2023-07-06, Time: 21:33:28, Device: A/C, Action: off
+Date: 2023-07-06, Time: 21:34:28, Device: light, Action: on
+Date: 2023-07-06, Time: 21:34:29, Device: light, Action: off
+Date: 2023-07-06, Time: 21:34:41, Device: sound system, Action: on
+Date: 2023-07-06, Time: 21:34:41, Device: sound system, Action: off
+Date: 2023-07-06, Time: 21:35:35, Device: A/C, Action: on
+Date: 2023-07-06, Time: 21:35:36, Device: A/C, Action: off
+Date: 2023-07-06, Time: 21:35:37, Device: A/C, Action: on
+Date: 2023-07-06, Time: 21:35:38, Device: A/C, Action: off
+Date: 2023-07-06, Time: 21:35:39, Device: light, Action: on
+Date: 2023-07-06, Time: 21:35:39, Device: light, Action: off
+Date: 2023-07-06, Time: 21:35:40, Device: sound system, Action: on
+Date: 2023-07-06, Time: 21:35:41, Device: sound system, Action: off
+Date: 2023-07-06, Time: 21:37:22, Device: A/C, Action: on
+Date: 2023-07-06, Time: 21:37:25, Device: A/C, Action: off
+Date: 2023-07-06, Time: 21:37:25, Device: light, Action: on
+Date: 2023-07-06, Time: 21:37:26, Device: light, Action: off
+Date: 2023-07-06, Time: 21:37:26, Device: sound system, Action: on
+Date: 2023-07-06, Time: 21:37:27, Device: sound system, Action: off
+Date: 2023-07-06, Time: 21:37:28, Device: Heater, Action: on
+Date: 2023-07-06, Time: 21:37:28, Device: Heater, Action: off

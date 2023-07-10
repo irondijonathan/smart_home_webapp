@@ -1,0 +1,153 @@
+ <!DOCTYPE html>
+ <html>
+ <head>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <!-- <link rel="stylesheet" type="text/css" href="/style.css"> -->
+   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/style.css') }}">
+
+ </head>
+ <body>
+   <div class="dashboard">
+     <header>
+       <div class="f fe">
+         <div class="icon icon-w"></div>
+         <div class="heading">
+           <h5 class="date">30 Jun 2023</h5>
+           <h2 class="title">Sunny</h2>
+         </div>
+       </div>
+ 
+       <div class="weather f">
+         <div>
+           <strong>26°<sup>C</sup></strong>
+           <p>Indoor Temp.</p>
+         </div>
+         <div>
+           <strong>48.2%</strong>
+           <p>Outdoor Humidity</p>
+         </div>
+
+         <!-- <div>
+           <strong>52.99</strong>
+           <p>Indoor Temp.</p>
+         </div> -->
+         
+       </div>
+     </header>
+     <section>
+       <!-- Category -->
+       <div class="category">
+         <ul>
+           <li><a href="#!" class="active">Living Room</a></li>
+           <li><a href="#!">Kitchen</a></li>
+           <li><a href="#!">Dining</a></li>
+           <!--- ><li><a href="#!">Weather</a></li>  -->
+         </ul>
+       </div>
+       <!-- Appliances -->
+       <div class="appliances">
+        <div class="appliance">
+          <input type="checkbox" name="a" id="a" onclick="sendAction('light', this.checked)">
+          <label for="a">
+            <i class="l"></i>
+            <strong>Light</strong>
+            <span data-o="On" data-c="off"></span>
+            <small></small>
+          </label>
+        </div>
+        <div class="appliance">
+          <input type="checkbox" name="a" id="b" onclick="sendAction('sound system', this.checked)">
+          <label for="b">
+            <i class="r"></i>
+            <strong>Sound System</strong>
+            <span data-o="On" data-c="off"></span>
+            <small></small>
+          </label>
+        </div>
+        <div class="appliance">
+          <input type="checkbox" name="a" id="c" onclick="sendAction('A/C', this.checked)">
+          <label for="c">
+            <i class="a"></i>
+            <strong>A/C</strong>
+            <span data-o="On" data-c="off"></span>
+            <small></small>
+          </label>
+        </div>
+        <div class="appliance">
+          <input type="checkbox" name="a" id="d" onclick="sendAction('Heater', this.checked)">
+          <label for="d">
+            <i class="f"></i>
+            <strong>Heater</strong>
+            <span data-o="On" data-c="off"></span>
+            <small></small>
+          </label>
+        </div>
+        <div class="m-player">
+          <h2>Shared Devices</h2>
+          <div class="player">
+            <div class="disc"></div>
+            <div class="artist">
+              <p>Rosetta Stoned</p>
+              <small>Tool</small>
+            </div>
+            <div class="controls">
+              <input type="checkbox" name="a" id="p" onclick="sendAction('media-player', this.checked)">
+              <label for="p">
+                <div class="control"></div>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+      
+     </section>
+   </div>
+
+ </body>
+ </html>
+
+ <script>
+  function sendAction(device, isChecked) {
+    var action = isChecked ? 'on' : 'off';
+    var data = {
+      device: device,
+      action: action
+    };
+    
+    // Send AJAX request to your class application
+    // Replace '/control' with the appropriate endpoint
+    // You may need to adjust the AJAX request to fit your requirements
+    fetch('/control', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+    .then(function(response) {
+      // Handle response if needed
+    })
+    .catch(function(error) {
+      // Handle error if needed
+    });
+
+      // Send data to the forward endpoint
+    fetch('/forward', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+    .then(function(response) {
+      // Handle response if needed
+    })
+    .catch(function(error) {
+      // Handle error if needed
+    });
+
+  }
+</script>
+ 
