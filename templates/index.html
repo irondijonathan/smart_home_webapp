@@ -4,6 +4,8 @@
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <!-- <link rel="stylesheet" type="text/css" href="/style.css"> -->
    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/style.css') }}">
+   <script src="{{ url_for('static', filename='/notify.js') }}"></script>
+
 
  </head>
  <body>
@@ -98,6 +100,12 @@
             </div>
           </div>
         </div>
+        <div id="notification" style="display: none;">
+          <h3 id="notification-message"></h3>
+          <button id="notification-on-button">On</button>
+          <button id="notification-off-button">Off</button>
+      </div>
+      
       </div>
       
       
@@ -115,23 +123,6 @@
       device: device,
       action: action
     };
-    
-    // Send AJAX request to your class application
-    // Replace '/control' with the appropriate endpoint
-    // You may need to adjust the AJAX request to fit your requirements
-    fetch('/control', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    })
-    .then(function(response) {
-      // Handle response if needed
-    })
-    .catch(function(error) {
-      // Handle error if needed
-    });
 
       // Send data to the forward endpoint
     fetch('/forward', {
@@ -148,6 +139,27 @@
       // Handle error if needed
     });
 
+  }
+</script>
+
+
+<script>
+  // Update the WebSocket URL to match your WebSocket server's address
+  const socket = new WebSocket('ws://127.0.0.1:8675/notify');
+
+  // Function to handle messages received from the WebSocket server
+  socket.onmessage = function(event) {
+    const data = JSON.parse(event.data);
+    const turnOnTime = data.turn_on_time;
+    const turnOffTime = data.turn_off_time;
+
+    // Handle the received data from the WebSocket server
+    // For example, show a pop-up notification
+    showPopUp(`Turn On Time: ${turnOnTime}, Turn Off Time: ${turnOffTime}`);
+  };
+
+  function showPopUp(message) {
+    alert(message);
   }
 </script>
  
