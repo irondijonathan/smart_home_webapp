@@ -1,6 +1,6 @@
-from flask import Flask, render_template, request, current_app
+from flask import Flask, render_template, request, current_app, jsonify
 import requests
-#import datetime
+import datetime
 from datetime import datetime, date, time
 import time
 import threading
@@ -9,25 +9,24 @@ from threading import Lock
 render_lock = Lock()
 
 app = Flask(__name__)
-
-
-
-
+data = []
 
 # Endpoint for controlling the local device
 @app.route('/')
 def home():
     return render_template('index.html')
 
-'''@app.route('/control', methods=['POST'])
+
+
+@app.route('/control', methods=['POST'])
 def control():
+    global data 
     data = request.get_json()
     device = data['device']
     action = data['action']
     turn_on_time_str = data['turn_on_time']
     turn_off_time_str = data['turn_off_time']
     print(data)
-    
 
 
     # Get the current date
@@ -85,7 +84,7 @@ def schedule_notification(device, action, scheduled_time):
         timer_thread = threading.Timer(time_difference.total_seconds(), call_javascript_function, args=[device, action])
         timer_thread.start()
         print("testing")
-'''
+
 
 
 # Endpoint for forwarding the device and action information to the provided IP
@@ -123,6 +122,16 @@ def log_data(device, action):
     log_entry = f"Date: {date_str}, Time: {time_str}, Device: {device}, Action: {action}"
     with open("log.txt", "a") as file:
         file.write(log_entry + "\n")
+
+
+
+#created a temporal endpoint to send the data because the control endpoint only prints the the data in terminal and doesnt send the data to the frontend 
+#but this endpoint also only sends the last device which is heater instead of all devices 
+@app.route('/hello', methods=['GET'])
+def hello():
+    global data 
+    print(data)
+    return data
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=8080)
