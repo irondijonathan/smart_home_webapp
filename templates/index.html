@@ -144,22 +144,31 @@
 
 
 <script>
-  // Update the WebSocket URL to match your WebSocket server's address
-  const socket = new WebSocket('ws://127.0.0.1:8675/notify');
+  async function requestDataFromServer() {
+    try {
+      const response = await fetch('http://127.0.0.1:8675/notify');
+      if (response.ok) {
+        const data = await response.json();
+        receiveData(data);
+      } else {
+        console.error('Failed to fetch data from server:', response.status, response.statusText);
+      }
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  }
 
-  // Function to handle messages received from the WebSocket server
-  socket.onmessage = function(event) {
-    const data = JSON.parse(event.data);
+  function receiveData(data) {
+    // Handle the received data from the server
+    // For example, show a pop-up notification
     const turnOnTime = data.turn_on_time;
     const turnOffTime = data.turn_off_time;
-
-    // Handle the received data from the WebSocket server
-    // For example, show a pop-up notification
     showPopUp(`Turn On Time: ${turnOnTime}, Turn Off Time: ${turnOffTime}`);
-  };
-
-  function showPopUp(message) {
-    alert(message);
   }
+
+  requestDataFromServer();
 </script>
+
+
+
  

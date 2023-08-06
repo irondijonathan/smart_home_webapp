@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, current_app
 import requests
-#import datetime
+import datetime
 from datetime import datetime, date, time
 import time
 import threading
@@ -9,7 +9,7 @@ from threading import Lock
 render_lock = Lock()
 
 app = Flask(__name__)
-
+data = []
 
 
 
@@ -19,7 +19,9 @@ app = Flask(__name__)
 def home():
     return render_template('index.html')
 
-'''@app.route('/control', methods=['POST'])
+
+
+@app.route('/control', methods=['POST'])
 def control():
     data = request.get_json()
     device = data['device']
@@ -85,7 +87,7 @@ def schedule_notification(device, action, scheduled_time):
         timer_thread = threading.Timer(time_difference.total_seconds(), call_javascript_function, args=[device, action])
         timer_thread.start()
         print("testing")
-'''
+
 
 
 # Endpoint for forwarding the device and action information to the provided IP
