@@ -1,166 +1,260 @@
- <!DOCTYPE html>
- <html>
- <head>
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-   <!-- <link rel="stylesheet" type="text/css" href="/style.css"> -->
-   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/style.css') }}">
-   <script src="{{ url_for('static', filename='/notify.js') }}"></script>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- <link rel="stylesheet" type="text/css" href="/style.css"> -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='/style.css') }}"
+    />
+    <script src="{{ url_for('static', filename='/notify.js') }}"></script>
+  </head>
+  <body>
+    <div class="dashboard">
+      <header>
+        <div class="f fe">
+          <div class="icon icon-w"></div>
+          <div class="heading">
+            <h5 class="date">30 Jun 2023</h5>
+            <h2 class="title">Sunny</h2>
+          </div>
+        </div>
 
+        <div class="weather f">
+          <div>
+            <strong>26°<sup>C</sup></strong>
+            <p>Indoor Temp.</p>
+          </div>
+          <div>
+            <strong>48.2%</strong>
+            <p>Outdoor Humidity</p>
+          </div>
 
- </head>
- <body>
-   <div class="dashboard">
-     <header>
-       <div class="f fe">
-         <div class="icon icon-w"></div>
-         <div class="heading">
-           <h5 class="date">30 Jun 2023</h5>
-           <h2 class="title">Sunny</h2>
-         </div>
-       </div>
- 
-       <div class="weather f">
-         <div>
-           <strong>26°<sup>C</sup></strong>
-           <p>Indoor Temp.</p>
-         </div>
-         <div>
-           <strong>48.2%</strong>
-           <p>Outdoor Humidity</p>
-         </div>
-
-         <!-- <div>
+          <!-- <div>
            <strong>52.99</strong>
            <p>Indoor Temp.</p>
          </div> -->
-         
-       </div>
-     </header>
-     <section>
-       <!-- Category -->
-       <div class="category">
-         <ul>
-           <li><a href="#!" class="active">Living Room</a></li>
-           <li><a href="#!">Kitchen</a></li>
-           <li><a href="#!">Dining</a></li>
-           <!--- ><li><a href="#!">Weather</a></li>  -->
-         </ul>
-       </div>
-       <!-- Appliances -->
-       <div class="appliances">
-        <div class="appliance">
-          <input type="checkbox" name="a" id="a" onclick="sendAction('light', this.checked)">
-          <label for="a">
-            <i class="l"></i>
-            <strong>Light</strong>
-            <span data-o="On" data-c="off"></span>
-            <small></small>
-          </label>
         </div>
-        <div class="appliance">
-          <input type="checkbox" name="a" id="b" onclick="sendAction('sound system', this.checked)">
-          <label for="b">
-            <i class="r"></i>
-            <strong>Sound System</strong>
-            <span data-o="On" data-c="off"></span>
-            <small></small>
-          </label>
+      </header>
+      <section>
+        <!-- Category -->
+        <div class="category">
+          <ul>
+            <li><a href="#!" class="active">Living Room</a></li>
+            <li><a href="#!">Kitchen</a></li>
+            <li><a href="#!">Dining</a></li>
+            <!--- ><li><a href="#!">Weather</a></li>  -->
+          </ul>
         </div>
-        <div class="appliance">
-          <input type="checkbox" name="a" id="c" onclick="sendAction('A/C', this.checked)">
-          <label for="c">
-            <i class="a"></i>
-            <strong>A/C</strong>
-            <span data-o="On" data-c="off"></span>
-            <small></small>
-          </label>
-        </div>
-        <div class="appliance">
-          <input type="checkbox" name="a" id="d" onclick="sendAction('Heater', this.checked)">
-          <label for="d">
-            <i class="f"></i>
-            <strong>Heater</strong>
-            <span data-o="On" data-c="off"></span>
-            <small></small>
-          </label>
-        </div>
-        <div class="m-player">
-          <h2>Shared Devices</h2>
-          <div class="player">
-            <div class="disc"></div>
-            <div class="artist">
-              <p>Rosetta Stoned</p>
-              <small>Tool</small>
-            </div>
-            <div class="controls">
-              <input type="checkbox" name="a" id="p" onclick="sendAction('media-player', this.checked)">
-              <label for="p">
-                <div class="control"></div>
-              </label>
+        <!-- Appliances -->
+        <div class="appliances">
+          <div class="appliance">
+            <input
+              type="checkbox"
+              name="a"
+              id="a"
+              onclick="sendAction('light', this.checked)"
+            />
+            <label for="a">
+              <i class="l"></i>
+              <strong>Light</strong>
+              <span data-o="On" data-c="off"></span>
+              <small></small>
+            </label>
+          </div>
+          <div class="appliance">
+            <input
+              type="checkbox"
+              name="a"
+              id="b"
+              onclick="sendAction('sound system', this.checked)"
+            />
+            <label for="b">
+              <i class="r"></i>
+              <strong>Sound System</strong>
+              <span data-o="On" data-c="off"></span>
+              <small></small>
+            </label>
+          </div>
+          <div class="appliance">
+            <input
+              type="checkbox"
+              name="a"
+              id="c"
+              onclick="sendAction('A/C', this.checked)"
+            />
+            <label for="c">
+              <i class="a"></i>
+              <strong>A/C</strong>
+              <span data-o="On" data-c="off"></span>
+              <small></small>
+            </label>
+          </div>
+          <div class="appliance">
+            <input
+              type="checkbox"
+              name="a"
+              id="d"
+              onclick="sendAction('Heater', this.checked)"
+            />
+            <label for="d">
+              <i class="f"></i>
+              <strong>Heater</strong>
+              <span data-o="On" data-c="off"></span>
+              <small></small>
+            </label>
+          </div>
+          <div class="m-player">
+            <h2>Shared Devices</h2>
+            <div class="player">
+              <div class="disc"></div>
+              <div class="artist">
+                <p>Rosetta Stoned</p>
+                <small>Tool</small>
+              </div>
+              <div class="controls">
+                <input
+                  type="checkbox"
+                  name="a"
+                  id="p"
+                  onclick="sendAction('media-player', this.checked)"
+                />
+                <label for="p">
+                  <div class="control"></div>
+                </label>
+              </div>
             </div>
           </div>
+          <div id="notification" style="display: none">
+            <h3 id="notification-message"></h3>
+            <button id="notification-on-button">On</button>
+            <button id="notification-off-button">Off</button>
+          </div>
         </div>
-        <div id="notification" style="display: none;">
-          <h3 id="notification-message"></h3>
-          <button id="notification-on-button">On</button>
-          <button id="notification-off-button">Off</button>
+      </section>
+    </div>
+    <div class="pop-up">
+      <div class="modal">
+        <div>
+          <h3>Activate device</h3>
+          <p class="message"></p>
+        </div>
+        <div class="btn-container">
+          <button class="action">Turn on</button>
+          <button class="cancel">Cancel</button>
+        </div>
       </div>
-      
-      </div>
-      
-      
-      
-     </section>
-   </div>
+    </div>
+  </body>
+</html>
+<script>
+  const popUp = document.querySelector(".pop-up");
+  const cancel = document.querySelector(".cancel");
+  const action = document.querySelector(".action");
+  const message = document.querySelector(".message");
 
- </body>
- </html>
+  //Close notification
+  cancel.addEventListener("click", function () {
+    popUp.style.display = "none";
+  });
 
- <script>
+  //get current time
+  function getCurrentTimeFormatted() {
+    const now = new Date();
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+    const ampm = hours >= 12 ? "PM" : "AM";
+
+    // Convert to 12-hour format
+    const formattedHours = hours % 12 || 12;
+    const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
+
+    return `${formattedHours}:${formattedMinutes} ${ampm}`;
+  }
+
+  // current time
+  const currentTime = getCurrentTimeFormatted();
+
+// Function that sends notification
+function notify(turnOnTime, turnOffTime) {
+  try {
+    fetch("/hello", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((app_data) => { // Use the correct variable name here
+        console.log(app_data); // Handle the response data
+
+        // Iterate through each dictionary in the array (app_data)
+        app_data.forEach((data) => { // Use the correct variable name here
+          const { device, action, turn_on_time, turn_off_time } = data;
+
+          // Check if it's time to switch devices on/off
+          if (turnOffTime === turn_off_time) {
+            // If it's time, open a notification to switch the device off
+            message.textContent = `It's ${currentTime}, Do you wish to switch off your ${device}?`;
+            action.textContent = "Turn Off";
+            popUp.style.display = "block";
+          } else if (turnOnTime === turn_on_time) {
+            // Open a notification to switch the device on
+            message.textContent = `It's ${currentTime}, Do you wish to switch on your ${device}?`;
+            action.textContent = "Turn On";
+            popUp.style.display = "block";
+          } else {
+            // If not, return
+            return;
+          }
+        });
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+
+  //pass the current time to the function to perform checks
+  notify(currentTime, currentTime);
+  // notify("06:03 AM", "05:29 PM");
+</script>
+<script>
   function sendAction(device, isChecked) {
-    var action = isChecked ? 'on' : 'off';
+    var action = isChecked ? "on" : "off";
     var data = {
       device: device,
-      action: action
+      action: action,
     };
 
-      // Send data to the forward endpoint
-    fetch('/forward', {
-      method: 'POST',
+    // Send data to the forward endpoint
+    fetch("/forward", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify(data),
     })
-    .then(function(response) {
-      // Handle response if needed
-    })
-    .catch(function(error) {
-      // Handle error if needed
-    });
-
+      .then(function (response) {
+        // Handle response if needed
+      })
+      .catch(function (error) {
+        // Handle error if needed
+      });
   }
 </script>
 
-
 <script>
-  async function requestDataFromServer() {
-    try {
-      const response = await fetch('http://127.0.0.1:8675/notify');
-      if (response.ok) {
-        const data = await response.json();
-        receiveData(data);
-      } else {
-        console.error('Failed to fetch data from server:', response.status, response.statusText);
-      }
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  }
+  // Update the WebSocket URL to match your WebSocket server's address
+  const socket = new WebSocket('ws://127.0.0.1:8675/notify');
 
-  function receiveData(data) {
-    // Handle the received data from the server
-    // For example, show a pop-up notification
+  // Function to handle messages received from the WebSocket server
+  socket.onmessage = function(event) {
+    const data = JSON.parse(event.data);
     const turnOnTime = data.turn_on_time;
     const turnOffTime = data.turn_off_time;
     showPopUp(`Turn On Time: ${turnOnTime}, Turn Off Time: ${turnOffTime}`);
@@ -168,7 +262,4 @@
 
   requestDataFromServer();
 </script>
-
-
-
  

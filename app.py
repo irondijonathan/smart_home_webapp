@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, current_app
+from flask import Flask, render_template, request, current_app, jsonify
 import requests
 import datetime
 from datetime import datetime, date, time
@@ -19,16 +19,20 @@ data = []
 def home():
     return render_template('index.html')
 
+app_data = [ ]
 
-
-@app.route('/control', methods=['POST'])
+@app.route('/control', methods=['POST', 'GET'])
 def control():
+    global app_data
     data = request.get_json()
+    app_data.append(data)  # Append the received dictionary to the list
+    app_data = app_data[-4:]  # Keep only the last 4 elements in the list
+    #data = request.get_json()
     device = data['device']
     action = data['action']
     turn_on_time_str = data['turn_on_time']
     turn_off_time_str = data['turn_off_time']
-    print(data)
+    #print(app_data)
     
 
 
@@ -54,6 +58,7 @@ def control():
     # Other code to handle the action and perform desired tasks
 
     return 'Device: ' + device + ', Action: ' + action
+
 
 
 def call_javascript_function(device, action):
@@ -86,7 +91,7 @@ def schedule_notification(device, action, scheduled_time):
         # Create a thread to call the JavaScript function at the scheduled time
         timer_thread = threading.Timer(time_difference.total_seconds(), call_javascript_function, args=[device, action])
         timer_thread.start()
-        print("testing")
+        
 
 
 
@@ -125,6 +130,17 @@ def log_data(device, action):
     log_entry = f"Date: {date_str}, Time: {time_str}, Device: {device}, Action: {action}"
     with open("log.txt", "a") as file:
         file.write(log_entry + "\n")
+
+
+
+#created a temporal endpoint to send the data because the control endpoint only prints the the data in terminal and doesnt send the data to the frontend 
+#but this endpoint also only sends the last device which is heater instead of all devices 
+
+@app.route('/hello', methods=['GET'])
+def hello():
+    global app_data
+    print(app_data)
+    return app_data
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=8080)
