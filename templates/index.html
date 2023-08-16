@@ -230,7 +230,6 @@ function notify(turnOnTime, turnOffTime) {
       device: device,
       action: action,
     };
-
     // Send data to the forward endpoint
     fetch("/forward", {
       method: "POST",

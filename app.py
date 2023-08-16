@@ -102,8 +102,7 @@ def forward():
 
     device = data['device']  # Extract the device value
     action = data['action']  # Extract the action value
-    #print(device)
-    #print(action)
+   
 
     # Forward the device and action information to the provided IP
     ip_address = 'http://172.20.10.2:5000/control-device'  # Replace with the appropriate IP address
