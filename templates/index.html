@@ -60,7 +60,7 @@
               <i class="l"></i>
               <strong>Light</strong>
               <span data-o="On" data-c="off"></span>
-              <small></small>
+              <small id = "light_toggle"></small>
             </label>
           </div>
           <div class="appliance">
@@ -68,7 +68,7 @@
               type="checkbox"
               name="a"
               id="b"
-              onclick="sendAction('sound system', this.checked)"
+              onclick="sendAction('Sound_System', this.checked)"
             />
             <label for="b">
               <i class="r"></i>
@@ -141,8 +141,8 @@
           <p class="message"></p>
         </div>
         <div class="btn-container">
-          <button class="action">Turn on</button>
-          <button class="cancel">Cancel</button>
+          <button class="action" id="actionButton" >Turn on</button>
+          <button class="cancel"  >Cancel</button>
         </div>
       </div>
     </div>
@@ -200,21 +200,138 @@
               : null;
           });
 
+          // Assuming you've selected the action button with its ID
+          const actionButton = document.getElementById("actionButton");
+
           // Check if it's time to switch devices on/off
           if (turnOffTime === report.turn_off_time) {
             // If it's time, open a notification to switch the device off
             message.textContent = `It's ${currentTime}, Do you wish to switch off your ${report.device}?`;
-            action.textContent = "Turn Off";
+            action.textContent = "Off";
+            actionButton.textContent = "Turn Off";
+            actionButton.addEventListener("click", () => {
+              sendData("Turn Off");
+              var labelToChange;
+              if(report.device =="light"){
+                labelToChange = "a";
+              }else if(report.device =="Sound_System"){
+                labelToChange = "b";
+              }else if(report.device =="A/C"){
+                labelToChange = "C";
+              }else if(report.device =="Heater"){
+                labelToChange = "d";
+              }
+      
+              const checkbox = document.getElementById(labelToChange);
+              
+              // Update the checked state
+              checkbox.checked = false;
+              popUp.style.display = "none";
+            });
+
+            // Set a timer to automatically execute sendData after 1 minute
+            timer = setTimeout(() => {
+              sendData("Turn Off");
+              var labelToChange;
+              if(report.device =="light"){
+                labelToChange = "a";
+              }else if(report.device =="Sound_System"){
+                labelToChange = "b";
+              }else if(report.device =="A/C"){
+                labelToChange = "C";
+              }else if(report.device =="Heater"){
+                labelToChange = "d";
+              }
+      
+              const checkbox = document.getElementById(labelToChange);
+              
+              // Update the checked state
+              checkbox.checked = false;
+              popUp.style.display = "none";
+            }, 60000); // 60000 milliseconds = 1 minute
+
             popUp.style.display = "block";
+
           } else if (turnOnTime === report.turn_on_time) {
             // Open a notification to switch the device on
             message.textContent = `It's ${currentTime}, Do you wish to switch on your ${report.device}?`;
-            action.textContent = "Turn On";
+            action.textContent = "On";
+            actionButton.textContent = "Turn On";
+            actionButton.addEventListener("click", () => {
+              sendData("on");
+              var labelToChange;
+              if(report.device =="light"){
+                labelToChange = "a";
+              }else if(report.device =="Sound_System"){
+                labelToChange = "b";
+              }else if(report.device =="A/C"){
+                labelToChange = "C";
+              }else if(report.device =="Heater"){
+                labelToChange = "d";
+              }
+      
+              const checkbox = document.getElementById(labelToChange);
+              
+              // Update the checked state
+              checkbox.checked = true;
+              
+              popUp.style.display = "none";
+            });
+
+            // Set a timer to automatically execute sendData after 1 minute
+            timer = setTimeout(() => {
+              sendData("on");
+              var labelToChange;
+              if(report.device =="light"){
+                labelToChange = "a";
+              }else if(report.device =="Sound_System"){
+                labelToChange = "b";
+              }else if(report.device =="A/C"){
+                labelToChange = "C";
+              }else if(report.device =="Heater"){
+                labelToChange = "d";
+              }
+      
+              const checkbox = document.getElementById(labelToChange);
+              
+              // Update the checked state
+              checkbox.checked = true;
+              popUp.style.display = "none";
+            }, 60000); // 60000 milliseconds = 1 minute
+
             popUp.style.display = "block";
+
           } else {
             // If not, return
             return;
           }
+
+
+          function sendData(action) {
+            // Prepare the data to be sent
+            const dataToSend = {
+              device: report.device,
+              action: action
+            };
+
+            // Send data to Flask backend using fetch
+            fetch("/notification", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json"
+              },
+              body: JSON.stringify(dataToSend)
+            })
+              .then(response => response.json())
+              .then(data => {
+                // Handle the response data if needed
+              })
+              .catch(error => {
+                console.error("Error:", error);
+              });
+            }
+
+
         })
         .catch((error) => {
           console.error("Error:", error);
@@ -227,8 +344,8 @@
   //pass the current time to the function to perform checks
   //call timer function every 40 seconds
   setInterval(() => {
-    notify(currentTime, currentTime);
-    // notify("05:03 AM", "06:00 PM");
+    // notify(currentTime, currentTime);
+    notify("05:07 AM", "05:09 PM");
   }, 40000);
 </script>
 <script>

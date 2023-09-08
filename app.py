@@ -83,7 +83,7 @@ def call_javascript_function(device, action):
         return render_template('index.html', js_code=js_code)
 
 def schedule_notification(device, action, scheduled_time):
-    current_time = datetime.now()
+    
     time_difference = scheduled_time - current_time
     #print(time_difference)
 
@@ -102,6 +102,8 @@ def forward():
 
     device = data['device']  # Extract the device value
     action = data['action']  # Extract the action value
+    print(device)
+    print(action)
    
 
     # Forward the device and action information to the provided IP
@@ -117,6 +119,31 @@ def forward():
     log_data(device, action)
     #return response.text
     return 'Device: ' + device + ', Action: ' + action
+
+
+
+
+
+@app.route('/notification', methods=['POST'])
+def receive_notification():
+    try:
+        data_received = request.get_json()
+        # Process the received data as needed
+        device = data_received.get('device')
+        effect = data_received.get('action')
+        action = effect.split()[-1]
+        
+        
+        # Forward the device and action information to the provided IP
+        ip_address = 'http://172.20.10.2:5000/control-device'  # Replace with the appropriate IP address
+        forward_data = {'device': device, 'action': action}
+        print(forward_data)
+        response = requests.post(ip_address, json=forward_data)
+        # Return a response if necessary
+        
+        return 'Device: ' + device + ', Action: ' + action
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
 
 def log_data(device, action):
